@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andy Chen · whoami</title>
+  <style>
+    :root {
+      --bg: #f4f5f6;
+      --term-bg: #fcfcfc;
+      --text: #1a1a1a;
+      --muted: #8a8f98;
+      --accent: #1976d2;
+      --border: #e0e2e6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1b1e;
+        --term-bg: #212226;
+        --text: #e6e6e6;
+        --muted: #7f8490;
+        --accent: #6ea8dc;
+        --border: #33353b;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Fira Mono", Menlo, Monaco, Consolas, monospace;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px 64px;
+    }
+    .term {
+      background: var(--term-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 24px 20px;
+      font-size: 14px;
+    }
+    .prompt { color: var(--muted); margin-bottom: 16px; }
+    .prompt .p { color: var(--accent); }
+    .row { display: flex; padding: 4px 0; }
+    .k { flex: 0 0 96px; color: var(--muted); }
+    .v { flex: 1 1 auto; min-width: 0; word-wrap: break-word; }
+    .sub { padding-left: 96px; }
+    .sub a { display: inline-block; margin-right: 18px; }
+    .back { display: block; margin-top: 40px; font-size: 12px; color: var(--muted); }
+    footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
+
+    @media screen and (max-width: 700px) {
+      main { padding: 40px 16px 48px; }
+      .term { padding: 18px 16px 14px; font-size: 13px; }
+      .k { flex-basis: 80px; }
+      .sub { padding-left: 80px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="term">
+      <div class="prompt"><span class="p">$</span> whoami</div>
+
+      <div class="row"><span class="k">name</span><span class="v">Andy Chen</span></div>
+      <div class="row"><span class="k">signature</span><span class="v">格理悟道</span></div>
+      <div class="row"><span class="k">field</span><span class="v">计算机科学 · 人工智能 · 复杂系统</span></div>
+      <div class="row"><span class="k">motto</span><span class="v">在现象背后寻找结构，探索智能如何从简单中涌现。</span></div>
+      <div class="row"><span class="k">now</span><span class="v">计算机科学学生 · 意大利特伦托</span></div>
+
+      <div class="row"><span class="k">projects</span></div>
+      <div class="sub">
+        <a href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer">PhilosophicalCharacter</a>
+        <a href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer">YourEurMap</a>
+        <a href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer">TheMapGenerator</a>
+        <a href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer">Hexwebmap</a>
+        <a href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer">GoodSouthweb</a>
+      </div>
+
+      <div class="row"><span class="k">links</span></div>
+      <div class="sub">
+        <a href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer">问道</a>
+        <a href="https://andychen.net" target="_blank" rel="noopener noreferrer">旧博客</a>
+      </div>
+    </div>
+
+    <a class="back" href="../">← 全部版本</a>
+    <footer>© Andy Chen</footer>
+  </main>
+</body>
+</html>

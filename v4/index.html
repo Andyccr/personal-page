@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格理悟道 · Andy Chen</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #111;
+      font-family: "Songti SC", "Songti TC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+    a { color: #1976d2; text-decoration: none; }
+    a:hover { color: #145ca4; text-decoration: underline; text-underline-position: under; }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 88px 28px 64px;
+    }
+    .layout { display: flex; align-items: flex-start; gap: 56px; }
+    .vertical {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      font-size: 46px;
+      line-height: 1;
+      letter-spacing: 0.35em;
+      flex: 0 0 auto;
+      padding: 8px 0;
+    }
+    .info { flex: 1 1 auto; min-width: 0; }
+    h1 { font-size: 24px; font-weight: 400; margin: 0 0 4px; }
+    .sig { font-size: 15px; color: #888; margin: 0 0 32px; }
+    p { margin: 0 0 18px; }
+    .now { color: #888; font-size: 14px; }
+    .block { margin-top: 34px; }
+    h2 { font-size: 15px; font-weight: 400; color: #888; letter-spacing: 0.2em; margin: 0 0 12px; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li { padding: 11px 0; border-bottom: 1px solid #e8e8e8; }
+    li:last-child { border-bottom: none; }
+    .proj { color: #111; }
+    .proj:hover { text-decoration: none; }
+    .proj:hover .pname { color: #145ca4; text-decoration: underline; text-decoration-color: #1976d2; text-underline-position: under; }
+    .pname { font-size: 16px; }
+    .pdesc { font-size: 13px; color: #888; margin-left: 8px; }
+    .links a { margin-right: 22px; font-size: 15px; }
+    .back { display: block; margin-top: 48px; font-size: 13px; }
+    footer { margin-top: 48px; font-size: 12px; color: #888; }
+
+    @media screen and (max-width: 700px) {
+      main { padding: 56px 24px 48px; }
+      .layout { flex-direction: column; gap: 24px; }
+      .vertical {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        font-size: 28px;
+        letter-spacing: 0.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="layout">
+      <div class="vertical">格理悟道</div>
+      <div class="info">
+        <h1>Andy Chen</h1>
+        <p class="sig">计算机科学 · 人工智能 · 复杂系统</p>
+
+        <p>在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+        <p class="now">计算机科学学生，现居意大利特伦托（Trento）。</p>
+
+        <div class="block">
+          <h2>项目</h2>
+          <ul>
+            <li><a class="proj" href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer"><span class="pname">PhilosophicalCharacter</span><span class="pdesc">NOEMA，中文哲学人格测评</span></a></li>
+            <li><a class="proj" href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer"><span class="pname">YourEurMap</span><span class="pdesc">欧洲地图</span></a></li>
+            <li><a class="proj" href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer"><span class="pname">TheMapGenerator</span><span class="pdesc">地图生成器</span></a></li>
+            <li><a class="proj" href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer"><span class="pname">Hexwebmap</span><span class="pdesc">六角格网页地图</span></a></li>
+            <li><a class="proj" href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer"><span class="pname">GoodSouthweb</span><span class="pdesc">网页游戏</span></a></li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <h2>链接</h2>
+          <p class="links">
+            <a href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer">问道</a>
+            <a href="https://andychen.net" target="_blank" rel="noopener noreferrer">旧博客</a>
+          </p>
+        </div>
+
+        <a class="back" href="../">← 全部版本</a>
+        <footer>© Andy Chen</footer>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andy Chen</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #333333;
+      --title: #2c3e50;
+      --link: #3498db;
+      --link-hover: #2176ae;
+      --muted: #888888;
+      --line: #e6e6e6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not(.light):not(.dark) {
+        --bg: #121212;
+        --text: #e0e0e0;
+        --title: #a9c4dd;
+        --link: #5aa7e0;
+        --link-hover: #8cc4ee;
+        --muted: #9a9a9a;
+        --line: #2a2a2a;
+      }
+    }
+    :root.dark {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --title: #a9c4dd;
+      --link: #5aa7e0;
+      --link-hover: #8cc4ee;
+      --muted: #9a9a9a;
+      --line: #2a2a2a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    h1, h2 { color: var(--title); font-weight: normal; }
+    h1 { font-size: 32px; margin: 0 0 6px; }
+    h2 { font-size: 20px; margin: 0 0 14px; }
+
+    .toggle {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      padding: 5px 12px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .toggle:hover { border-color: var(--link); color: var(--link); }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 28px 64px;
+    }
+    .subtitle {
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 40px;
+    }
+    section { margin-bottom: 40px; }
+    p { margin: 0 0 16px; }
+    .now { color: var(--muted); font-size: 15px; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li { padding: 11px 0; border-bottom: 1px solid var(--line); }
+    li:last-child { border-bottom: none; }
+    .proj { color: var(--text); }
+    .proj:hover { text-decoration: none; }
+    .proj:hover .pname { color: var(--link-hover); text-decoration: underline; }
+    .pname { color: var(--title); }
+    .pdesc { color: var(--muted); font-size: 14px; margin-left: 8px; }
+    .links a { margin-right: 22px; }
+    .back { display: block; margin-top: 48px; font-size: 13px; }
+    footer { margin-top: 48px; font-size: 13px; color: var(--muted); }
+
+    @media screen and (max-width: 700px) {
+      main { padding: 72px 20px 48px; }
+      h1 { font-size: 26px; }
+      .toggle { top: 10px; right: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle" id="theme-toggle" type="button" aria-label="切换主题">暗</button>
+  <main>
+    <h1>Andy Chen</h1>
+    <p class="subtitle">Stay hungry, stay foolish</p>
+
+    <section>
+      <h2>关于</h2>
+      <p>在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+      <p class="now">计算机科学学生，现居意大利特伦托（Trento）。</p>
+    </section>
+
+    <section>
+      <h2>方向</h2>
+      <ul>
+        <li>计算机科学</li>
+        <li>人工智能</li>
+        <li>复杂系统</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>项目</h2>
+      <ul>
+        <li><a class="proj" href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer"><span class="pname">PhilosophicalCharacter</span><span class="pdesc">NOEMA，中文哲学人格测评</span></a></li>
+        <li><a class="proj" href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer"><span class="pname">YourEurMap</span><span class="pdesc">欧洲地图</span></a></li>
+        <li><a class="proj" href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer"><span class="pname">TheMapGenerator</span><span class="pdesc">地图生成器</span></a></li>
+        <li><a class="proj" href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer"><span class="pname">Hexwebmap</span><span class="pdesc">六角格网页地图</span></a></li>
+        <li><a class="proj" href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer"><span class="pname">GoodSouthweb</span><span class="pdesc">网页游戏</span></a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>链接</h2>
+      <p class="links">
+        <a href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer">问道</a>
+        <a href="https://andychen.net" target="_blank" rel="noopener noreferrer">旧博客</a>
+      </p>
+    </section>
+
+    <a class="back" href="../">← 全部版本</a>
+    <footer>© Andy Chen</footer>
+  </main>
+
+  <script>
+    (function () {
+      var KEY = 'andychen-theme';
+      var root = document.documentElement;
+      var btn = document.getElementById('theme-toggle');
+      function apply(dark) {
+        root.classList.remove('dark', 'light');
+        root.classList.add(dark ? 'dark' : 'light');
+        btn.textContent = dark ? '亮' : '暗';
+      }
+      var stored = localStorage.getItem(KEY);
+      if (stored) {
+        apply(stored === 'dark');
+      } else {
+        apply(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+      btn.addEventListener('click', function () {
+        var dark = root.classList.contains('dark');
+        apply(!dark);
+        localStorage.setItem(KEY, dark ? 'light' : 'dark');
+      });
+    })();
+  </script>
+</body>
+</html>
