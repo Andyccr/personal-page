@@ -8,4 +8,4 @@ Andy Chen 的极简个人页实验，共五个版本：
 - v4 竖排
 - v5 终端
 
-预览：https://andyccr.github.io/personal-page/
+预览：https://andyccr.com/personal-page/
