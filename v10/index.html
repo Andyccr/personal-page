@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格理悟道 · Andy Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #111;
+      --text: #e9e4d9;
+      --muted: rgba(233, 228, 217, 0.48);
+      --accent: #6fa8dc;
+      --serif: Lora, "Songti SC", "Noto Serif CJK SC", serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.85;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--text); text-decoration: none; position: relative; }
+    .u::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.28s ease;
+    }
+    a.u:hover { color: var(--accent); }
+    a.u:hover::after { width: 100%; }
+
+    main {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 104px 28px 88px;
+    }
+    h1 {
+      font-weight: 400;
+      font-size: 40px;
+      letter-spacing: 0.1em;
+      margin: 0;
+      line-height: 1.4;
+    }
+    .name {
+      font-size: 15px;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+      margin: 14px 0 0;
+    }
+    .lead {
+      font-size: 18px;
+      line-height: 1.95;
+      margin: 56px 0 12px;
+    }
+    .now { color: var(--muted); font-size: 15px; margin: 0; }
+
+    .section { margin-top: 56px; }
+    .label {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+    .fields { margin: 0; padding: 0; list-style: none; }
+    .fields li { padding: 10px 0; border-bottom: 1px solid rgba(233, 228, 217, 0.1); font-size: 17px; }
+    .fields li:last-child { border-bottom: none; }
+
+    .proj { list-style: none; margin: 0; padding: 0; }
+    .proj li { padding: 12px 0; border-bottom: 1px solid rgba(233, 228, 217, 0.1); }
+    .proj li:last-child { border-bottom: none; }
+    .proj a { font-size: 16px; }
+    .proj .desc { display: block; font-size: 13px; color: var(--muted); margin-top: 1px; }
+
+    .links a { margin-right: 26px; font-size: 16px; }
+
+    .foot { margin-top: 72px; font-size: 13px; color: var(--muted); }
+    .foot .copy { display: block; margin-top: 16px; font-size: 12px; }
+
+    @media screen and (max-width: 700px) {
+      main { padding: 64px 24px 72px; }
+      h1 { font-size: 32px; }
+      .lead { font-size: 17px; margin-top: 40px; }
+      .links a { display: inline-block; margin: 0 20px 12px 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>格理悟道</h1>
+    <p class="name">Andy Chen</p>
+
+    <p class="lead">在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+    <p class="now">计算机科学学生，现居意大利特伦托（Trento）。</p>
+
+    <div class="section">
+      <p class="label">方向</p>
+      <ul class="fields">
+        <li>计算机科学</li>
+        <li>人工智能</li>
+        <li>复杂系统</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <p class="label">项目</p>
+      <ul class="proj">
+        <li><a class="u" href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer">PhilosophicalCharacter<span class="desc">NOEMA，中文哲学人格测评</span></a></li>
+        <li><a class="u" href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer">YourEurMap<span class="desc">欧洲地图</span></a></li>
+        <li><a class="u" href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer">TheMapGenerator<span class="desc">地图生成器</span></a></li>
+        <li><a class="u" href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer">Hexwebmap<span class="desc">六角格网页地图</span></a></li>
+        <li><a class="u" href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer">GoodSouthweb<span class="desc">网页游戏</span></a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <p class="label">链接</p>
+      <p class="links">
+        <a class="u" href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="u" href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer">问道</a>
+        <a class="u" href="https://andychen.net" target="_blank" rel="noopener noreferrer">旧博客</a>
+      </p>
+    </div>
+
+    <footer class="foot">
+      <a class="u" href="../">← 全部版本</a>
+      <span class="copy">© Andy Chen</span>
+    </footer>
+  </main>
+</body>
+</html>

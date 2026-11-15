@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格理悟道 · Andy Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2f2f0;
+      --card: #ffffff;
+      --text: #111;
+      --muted: rgba(0, 0, 0, 0.5);
+      --accent: #1976d2;
+      --serif: Lora, "Songti SC", "Noto Serif CJK SC", serif;
+      --ui: Montserrat, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ui);
+      font-weight: 400;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--text); text-decoration: none; }
+
+    .stage {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card);
+      padding: 56px 44px 48px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+    }
+    .card h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    .card .sig {
+      font-family: var(--serif);
+      font-size: 16px;
+      letter-spacing: 0.24em;
+      color: var(--accent);
+      margin: 10px 0 0;
+    }
+    .card .dir {
+      margin: 22px 0 0;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .card .motto {
+      font-family: var(--serif);
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin: 20px 0 0;
+    }
+
+    .card .rule {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.08);
+      margin: 30px 0;
+    }
+    .icon-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+    }
+    .icon-link { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .icon-link .badge {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-family: var(--serif);
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+    .icon-link:hover .badge {
+      border-color: var(--accent);
+      color: #fff;
+      background: var(--accent);
+    }
+    .icon-link .cap { font-size: 12px; color: var(--muted); }
+
+    .projects {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 2.1;
+      max-width: 560px;
+    }
+    .projects a { color: var(--muted); }
+    .projects a:hover { color: var(--accent); }
+    .projects .sep { margin: 0 10px; color: rgba(0, 0, 0, 0.25); }
+
+    .foot {
+      margin-top: 44px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .foot .back { color: var(--muted); }
+    .foot .back:hover { color: var(--accent); }
+    .foot .copy { display: block; margin-top: 12px; }
+
+    @media screen and (max-width: 700px) {
+      .card { padding: 44px 28px 40px; }
+      .icon-links { gap: 20px; }
+      .projects .sep { margin: 0 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="card">
+      <h1>Andy Chen</h1>
+      <p class="sig">格理悟道</p>
+      <p class="dir">计算机科学 · 人工智能 · 复杂系统</p>
+      <p class="motto">在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+
+      <div class="rule"></div>
+      <div class="icon-links">
+        <a class="icon-link" href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer"><span class="badge">G</span><span class="cap">GitHub</span></a>
+        <a class="icon-link" href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer"><span class="badge">道</span><span class="cap">问道</span></a>
+        <a class="icon-link" href="https://andychen.net" target="_blank" rel="noopener noreferrer"><span class="badge">旧</span><span class="cap">旧博客</span></a>
+      </div>
+    </div>
+
+    <p class="projects">
+      <a href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer">PhilosophicalCharacter</a><span class="sep">·</span>
+      <a href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer">YourEurMap</a><span class="sep">·</span>
+      <a href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer">TheMapGenerator</a><span class="sep">·</span>
+      <a href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer">Hexwebmap</a><span class="sep">·</span>
+      <a href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer">GoodSouthweb</a>
+    </p>
+
+    <footer class="foot">
+      <a class="back" href="../">← 全部版本</a>
+      <span class="copy">© Andy Chen</span>
+    </footer>
+  </div>
+</body>
+</html>

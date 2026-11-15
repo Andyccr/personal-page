@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格理悟道 · Andy Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fcfcfc;
+      --text: #000;
+      --muted: rgba(0, 0, 0, 0.42);
+      --accent: #1976d2;
+      --axis: rgba(0, 0, 0, 0.14);
+      --serif: Lora, "Songti SC", "Noto Serif CJK SC", serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.8;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    .sheet {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 88px 40px 80px;
+    }
+    .title-block {
+      text-align: center;
+      padding-bottom: 56px;
+    }
+    .title-block h1 {
+      font-size: 44px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      margin: 0;
+      line-height: 1.4;
+    }
+    .title-block .name {
+      font-size: 15px;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+    .title-block .axis-tip {
+      width: 1px;
+      height: 48px;
+      background: var(--axis);
+      margin: 40px auto 0;
+    }
+
+    .pairs { position: relative; }
+    .pairs::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: var(--axis);
+    }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 56px;
+      padding: 14px 0;
+    }
+    .pair .zh { text-align: right; font-size: 17px; }
+    .pair .en {
+      text-align: left;
+      font-size: 15px;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.02em;
+      padding-top: 2px;
+    }
+    a.pair:hover .zh { color: var(--accent); }
+    .divider {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 56px;
+      padding: 40px 0 16px;
+    }
+    .divider .zh {
+      text-align: right;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+    }
+    .divider .en {
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .foot {
+      position: relative;
+      text-align: center;
+      margin-top: 64px;
+      padding-top: 24px;
+    }
+    .foot .back { display: inline-block; font-size: 13px; color: var(--muted); }
+    .foot .back:hover { color: var(--accent); }
+    .foot .copy { display: block; margin-top: 14px; font-size: 12px; color: var(--muted); }
+
+    @media screen and (max-width: 700px) {
+      .sheet { padding: 56px 24px 64px; }
+      .title-block h1 { font-size: 32px; }
+      .pairs::before { display: none; }
+      .pair, .divider { grid-template-columns: 1fr; column-gap: 0; row-gap: 2px; padding: 18px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+      .pair .zh, .divider .zh { text-align: left; }
+      .pair .en, .divider .en { text-align: left; }
+      .divider { border-bottom: none; padding-bottom: 8px; }
+      .divider .en { margin-top: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="title-block">
+      <h1>格理悟道</h1>
+      <p class="name">Andy Chen</p>
+      <div class="axis-tip"></div>
+    </header>
+
+    <div class="pairs">
+      <div class="pair">
+        <span class="zh">在现象背后寻找结构，探索智能如何从简单中涌现。</span>
+        <span class="en">Seek the structure behind the phenomenon, and explore how intelligence emerges from simplicity.</span>
+      </div>
+      <div class="pair">
+        <span class="zh">计算机科学学生，现居意大利特伦托（Trento）。</span>
+        <span class="en">Computer science student, currently in Trento, Italy.</span>
+      </div>
+
+      <div class="divider">
+        <span class="zh">方向</span>
+        <span class="en">Field</span>
+      </div>
+      <div class="pair"><span class="zh">计算机科学</span><span class="en">Computer Science</span></div>
+      <div class="pair"><span class="zh">人工智能</span><span class="en">Artificial Intelligence</span></div>
+      <div class="pair"><span class="zh">复杂系统</span><span class="en">Complex Systems</span></div>
+
+      <div class="divider">
+        <span class="zh">项目</span>
+        <span class="en">Projects</span>
+      </div>
+      <a class="pair" href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer"><span class="zh">中文哲学人格测评（NOEMA）</span><span class="en">PhilosophicalCharacter</span></a>
+      <a class="pair" href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer"><span class="zh">欧洲地图</span><span class="en">YourEurMap</span></a>
+      <a class="pair" href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer"><span class="zh">地图生成器</span><span class="en">TheMapGenerator</span></a>
+      <a class="pair" href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer"><span class="zh">六角格网页地图</span><span class="en">Hexwebmap</span></a>
+      <a class="pair" href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer"><span class="zh">网页游戏</span><span class="en">GoodSouthweb</span></a>
+
+      <div class="divider">
+        <span class="zh">链接</span>
+        <span class="en">Links</span>
+      </div>
+      <a class="pair" href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer"><span class="zh">GitHub</span><span class="en">github.com/Andyccr</span></a>
+      <a class="pair" href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer"><span class="zh">问道</span><span class="en">wendao</span></a>
+      <a class="pair" href="https://andychen.net" target="_blank" rel="noopener noreferrer"><span class="zh">旧博客</span><span class="en">andychen.net</span></a>
+    </div>
+
+    <footer class="foot">
+      <a class="back" href="../">← 全部版本</a>
+      <span class="copy">© Andy Chen</span>
+    </footer>
+  </div>
+</body>
+</html>
