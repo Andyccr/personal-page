@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格理悟道 · Andy Chen</title>
+  <meta name="description" content="Andy Chen — 格理悟道：计算机科学 · 人工智能 · 复杂系统，意大利特伦托。Seek the structure behind the phenomenon.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="格理悟道 · Andy Chen">
+  <meta property="og:description" content="计算机科学 · 人工智能 · 复杂系统，意大利特伦托。Seek the structure behind the phenomenon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0a0a0a;
+      --muted: rgba(0, 0, 0, 0.45);
+      --accent: #555555;
+      --line: rgba(0, 0, 0, 0.16);
+      --line-soft: rgba(0, 0, 0, 0.09);
+      --grid: rgba(0, 0, 0, 0.10);
+      --ui: Inter, "Helvetica Neue", Arial, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      --gap: 20px;
+      --pad: 32px;
+      --max: 1200px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --text: #f5f5f5;
+        --muted: rgba(255, 255, 255, 0.5);
+        --accent: #aaaaaa;
+        --line: rgba(255, 255, 255, 0.16);
+        --line-soft: rgba(255, 255, 255, 0.09);
+        --grid: rgba(255, 255, 255, 0.12);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ui);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--accent); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--gap);
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* ---------- top meta bar ---------- */
+    .topbar {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--gap);
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px var(--pad);
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .topbar .a { grid-column: 1 / span 4; }
+    .topbar .b { grid-column: 5 / span 4; text-align: center; }
+    .topbar .c { grid-column: 9 / span 4; text-align: right; white-space: nowrap; }
+    #clock { font-variant-numeric: tabular-nums; }
+    #lang-toggle {
+      font: inherit;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--line);
+      padding: 1px 9px;
+      margin-left: 12px;
+      cursor: pointer;
+      border-radius: 0;
+    }
+    #lang-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ---------- hero ---------- */
+    .hero { padding-block: clamp(48px, 8vw, 96px) clamp(40px, 7vw, 80px); }
+    .hero .title-col { grid-column: 1 / span 9; align-self: end; }
+    .hero .sig { grid-column: 10 / span 3; align-self: end; text-align: left; }
+    .hero h1 {
+      font-family: var(--ui);
+      font-weight: 700;
+      font-size: clamp(64px, 11vw, 128px);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      margin: 0;
+    }
+    .hero .name {
+      margin: 18px 0 0;
+      font-family: var(--ui);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero .sig .en {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hero .sig .zh {
+      margin: 12px 0 0;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ---------- rows ---------- */
+    .row { border-top: 1px solid var(--line); padding-block: clamp(22px, 3.4vw, 38px); }
+    .row .label { grid-column: 1 / span 3; position: sticky; top: 20px; align-self: start; }
+    .row .body { grid-column: 4 / span 9; }
+    .row .num {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 8px;
+    }
+    .row .label h2 {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    html[lang="zh-Hans"] .row .label h2 { letter-spacing: 0.06em; }
+
+    .row .body p { margin: 0 0 12px; max-width: 600px; }
+    .row .body p:last-child { margin-bottom: 0; }
+    .lead { font-size: 17px; line-height: 1.7; font-weight: 400; }
+    .now { color: var(--muted); font-size: 13px; }
+
+    /* ---------- fields ---------- */
+    .fields { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: var(--gap); }
+    .fields .big { display: block; font-weight: 700; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; letter-spacing: -0.02em; }
+    .fields .small {
+      display: block;
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ---------- work / links tables ---------- */
+    .work, .links { list-style: none; margin: 0; padding: 0; }
+    .work .head,
+    .work-row {
+      display: grid;
+      grid-template-columns: 40px 1.05fr 1.5fr 84px 22px;
+      column-gap: 16px;
+      align-items: baseline;
+    }
+    .work .head {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .work-row {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line-soft);
+      transition: border-color 0.18s ease;
+    }
+    .work-row:hover { border-bottom-color: var(--accent); }
+    .work-row .idx { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .work-row .name { font-size: 14px; font-weight: 700; }
+    .work-row .desc { font-size: 12px; color: var(--muted); }
+    .work-row .tag {
+      justify-self: start;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 1px 8px;
+    }
+    .work-row .arrow, .link-row .arrow {
+      font-size: 14px;
+      color: var(--muted);
+      justify-self: end;
+      transition: transform 0.18s ease, color 0.18s ease;
+    }
+    .work-row:hover .arrow, .link-row:hover .arrow { transform: translateX(4px); color: var(--accent); }
+    .work-row:hover .name, .link-row:hover .name { color: var(--accent); }
+
+    .link-row {
+      display: grid;
+      grid-template-columns: 1fr auto 22px;
+      column-gap: 16px;
+      align-items: baseline;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .link-row .name { font-size: 14px; font-weight: 700; }
+    .link-row .domain { font-size: 11px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* ---------- footer ---------- */
+    .foot {
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+      padding-block: 22px 64px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .foot .back { grid-column: 1 / span 4; }
+    .foot .hint { grid-column: 5 / span 4; text-align: center; }
+    .foot .copy { grid-column: 9 / span 4; text-align: right; }
+
+    /* ---------- grid guide ---------- */
+    .grid-guide { position: fixed; inset: 0; z-index: 999; pointer-events: none; display: none; }
+    .grid-guide.on { display: block; }
+    .grid-guide-inner {
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--gap);
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+    .grid-guide i { background: var(--grid); }
+
+    /* ---------- reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ---------- mobile ---------- */
+    @media screen and (max-width: 700px) {
+      :root { --gap: 16px; --pad: 20px; }
+      .grid { grid-template-columns: minmax(0, 1fr); }
+      .foot .hint { display: none; }
+      .topbar { grid-template-columns: 1fr 1fr; row-gap: 4px; }
+      .topbar .a { grid-column: 1 / -1; text-align: left; }
+      .topbar .b { grid-column: 1; text-align: left; }
+      .topbar .c { grid-column: 2; text-align: right; }
+
+      .hero .title-col { grid-column: 1 / -1; }
+      .hero .sig { grid-column: 1 / -1; text-align: left; margin-top: 28px; }
+      .hero h1 { font-size: clamp(48px, 16vw, 76px); }
+
+      .row .label {
+        grid-column: 1 / -1;
+        position: static;
+        display: flex;
+        align-items: baseline;
+        gap: 0;
+        margin-bottom: 14px;
+      }
+      .row .label .num { margin: 0; }
+      .row .label .num::after { content: " — "; color: var(--muted); }
+      .row .body { grid-column: 1 / -1; }
+
+      .fields { grid-template-columns: 1fr; row-gap: 20px; }
+
+      .work .head { display: none; }
+      .work-row {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: "name arrow" "desc tag";
+        row-gap: 4px;
+        column-gap: 12px;
+        padding: 13px 0;
+      }
+      .work-row .idx { display: none; }
+      .work-row .name { grid-area: name; }
+      .work-row .arrow { grid-area: arrow; }
+      .work-row .desc { grid-area: desc; }
+      .work-row .tag { grid-area: tag; justify-self: end; }
+
+      .link-row {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "name arrow" "domain domain";
+        row-gap: 4px;
+      }
+      .link-row .name { grid-area: name; }
+      .link-row .arrow { grid-area: arrow; }
+      .link-row .domain { grid-area: domain; text-align: left; }
+
+      .foot .back { grid-column: 1 / -1; }
+      .foot .hint { grid-column: 1 / -1; text-align: left; margin-top: 10px; }
+      .foot .copy { grid-column: 1 / -1; text-align: left; margin-top: 10px; }
+    }
+
+    /* ---------- print ---------- */
+    @media print {
+      .grid-guide, #lang-toggle { display: none !important; }
+      body { background: #fff; color: #000; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .row .label { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-guide" id="grid-guide" aria-hidden="true">
+    <div class="grid-guide-inner">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <span class="a" data-zh="Andy Chen — 个人页" data-en="Andy Chen — Personal Page">Andy Chen — 个人页</span>
+    <span class="b">Trento, IT</span>
+    <span class="c"><span id="clock">00:00</span><button id="lang-toggle" type="button" aria-label="切换语言 / Switch language">EN</button></span>
+  </header>
+
+  <header class="grid hero" data-reveal>
+    <div class="title-col">
+      <h1>格理悟道</h1>
+      <p class="name">Andy Chen</p>
+    </div>
+    <div class="sig">
+      <p class="en">Seek the structure behind the phenomenon and exploring how intelligence emerges from simplicity.</p>
+      <p class="zh">在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid row" data-reveal>
+      <div class="label">
+        <span class="num">01</span>
+        <h2 data-zh="关于" data-en="About">关于</h2>
+      </div>
+      <div class="body">
+        <p class="lead" data-zh="在现象背后寻找结构，探索智能如何从简单中涌现。" data-en="Seek the structure behind the phenomenon and exploring how intelligence emerges from simplicity.">在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+        <p class="now" data-zh="计算机科学学生，在意大利特伦托（Trento）。" data-en="Computer Science student in Trento, Italy.">计算机科学学生，在意大利特伦托（Trento）。</p>
+      </div>
+    </section>
+
+    <section class="grid row" data-reveal>
+      <div class="label">
+        <span class="num">02</span>
+        <h2 data-zh="方向" data-en="Field">方向</h2>
+      </div>
+      <div class="body">
+        <ul class="fields">
+          <li class="field">
+            <span class="big" data-zh="计算机科学" data-en="Computer Science">计算机科学</span>
+            <span class="small" data-zh="计算机科学" data-en="Computer Science">Computer Science</span>
+          </li>
+          <li class="field">
+            <span class="big" data-zh="人工智能" data-en="Artificial Intelligence">人工智能</span>
+            <span class="small" data-zh="人工智能" data-en="Artificial Intelligence">Artificial Intelligence</span>
+          </li>
+          <li class="field">
+            <span class="big" data-zh="复杂系统" data-en="Complex Systems">复杂系统</span>
+            <span class="small" data-zh="复杂系统" data-en="Complex Systems">Complex Systems</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid row" data-reveal>
+      <div class="label">
+        <span class="num">03</span>
+        <h2 data-zh="项目" data-en="Work">项目</h2>
+      </div>
+      <div class="body">
+        <ul class="work">
+          <li class="head">
+            <span data-zh="编号" data-en="№">编号</span>
+            <span data-zh="项目" data-en="Project">项目</span>
+            <span data-zh="描述" data-en="Description">描述</span>
+            <span data-zh="类型" data-en="Type">类型</span>
+            <span></span>
+          </li>
+          <li>
+            <a class="work-row" href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer">
+              <span class="idx">01</span>
+              <span class="name">PhilosophicalCharacter</span>
+              <span class="desc" data-zh="NOEMA，中文哲学人格测评" data-en="NOEMA, a Chinese philosophical personality assessment">NOEMA，中文哲学人格测评</span>
+              <span class="tag">Web</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer">
+              <span class="idx">02</span>
+              <span class="name">YourEurMap</span>
+              <span class="desc" data-zh="欧洲地图" data-en="Map of Europe">欧洲地图</span>
+              <span class="tag">Map</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer">
+              <span class="idx">03</span>
+              <span class="name">TheMapGenerator</span>
+              <span class="desc" data-zh="地图生成器" data-en="Map generator">地图生成器</span>
+              <span class="tag">Map</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer">
+              <span class="idx">04</span>
+              <span class="name">Hexwebmap</span>
+              <span class="desc" data-zh="六角格网页地图" data-en="Hex grid web map">六角格网页地图</span>
+              <span class="tag">Map</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer">
+              <span class="idx">05</span>
+              <span class="name">GoodSouthweb</span>
+              <span class="desc" data-zh="网页游戏" data-en="Web game">网页游戏</span>
+              <span class="tag">Game</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid row" data-reveal>
+      <div class="label">
+        <span class="num">04</span>
+        <h2 data-zh="链接" data-en="Elsewhere">链接</h2>
+      </div>
+      <div class="body">
+        <ul class="links">
+          <li>
+            <a class="link-row" href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer">
+              <span class="name">GitHub</span>
+              <span class="domain">github.com/Andyccr</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="link-row" href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer">
+              <span class="name" data-zh="问道" data-en="Wendao">问道</span>
+              <span class="domain">andyccr.github.io/wendao</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="link-row" href="https://andychen.net" target="_blank" rel="noopener noreferrer">
+              <span class="name" data-zh="旧博客" data-en="Old blog">旧博客</span>
+              <span class="domain">andychen.net</span>
+              <span class="arrow">→</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="grid foot">
+    <span class="back"><a href="../" data-zh="← 全部版本" data-en="← All versions">← 全部版本</a></span>
+    <span class="hint" data-zh="按 G 键显示网格" data-en="Press G for grid">按 G 键显示网格</span>
+    <span class="copy">© Andy Chen</span>
+  </footer>
+
+  <script>
+    (function () {
+      var lang = localStorage.getItem("lang") || "zh";
+      var toggleEls = document.querySelectorAll("[data-zh]:not(.big):not(.small)");
+      var fields = document.querySelectorAll(".field");
+      var toggleBtn = document.getElementById("lang-toggle");
+
+      function applyLang(l) {
+        lang = l;
+        document.documentElement.lang = (l === "zh") ? "zh-Hans" : "en";
+        toggleEls.forEach(function (el) {
+          el.textContent = el.getAttribute(l === "zh" ? "data-zh" : "data-en");
+        });
+        fields.forEach(function (li) {
+          var big = li.querySelector(".big");
+          var small = li.querySelector(".small");
+          big.textContent = big.getAttribute(l === "zh" ? "data-zh" : "data-en");
+          small.textContent = small.getAttribute(l === "zh" ? "data-en" : "data-zh");
+        });
+        toggleBtn.textContent = (l === "zh") ? "EN" : "中";
+        localStorage.setItem("lang", l);
+      }
+
+      applyLang(lang);
+      toggleBtn.addEventListener("click", function () {
+        applyLang(lang === "zh" ? "en" : "zh");
+      });
+
+      // live clock, Europe/Rome
+      var clock = document.getElementById("clock");
+      function tick() {
+        clock.textContent = new Intl.DateTimeFormat("en-GB", {
+          hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Europe/Rome"
+        }).format(new Date());
+      }
+      tick();
+      setInterval(tick, 30000);
+
+      // grid guide toggle
+      var guide = document.getElementById("grid-guide");
+      window.addEventListener("keydown", function (e) {
+        if (e.key === "g" || e.key === "G") {
+          if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
+          guide.classList.toggle("on");
+        }
+      });
+
+      // reveal on scroll
+      var revealEls = document.querySelectorAll("[data-reveal]");
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      revealEls.forEach(function (el) { el.classList.add("reveal"); });
+      if (reduced) {
+        revealEls.forEach(function (el) { el.classList.add("in"); });
+      } else if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add("in"); });
+      }
+    })();
+  </script>
+</body>
+</html>
