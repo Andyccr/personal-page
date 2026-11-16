@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格理悟道 · Andy Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fcfcfc;
+      --text: #111;
+      --muted: rgba(0, 0, 0, 0.42);
+      --accent: #1976d2;
+      --line: rgba(0, 0, 0, 0.14);
+      --serif: Lora, "Songti SC", "Noto Serif CJK SC", serif;
+      --ui: Montserrat, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ui);
+      font-weight: 400;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .masthead {
+      padding-top: 112px;
+      padding-bottom: 88px;
+    }
+    .masthead .title { grid-column: 1 / span 8; }
+    .masthead .meta { grid-column: 9 / span 4; text-align: right; align-self: end; }
+    .masthead h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 50px;
+      letter-spacing: 0.08em;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .masthead .sub {
+      margin: 14px 0 0;
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+    }
+    .masthead .meta { font-size: 12px; letter-spacing: 0.16em; color: var(--muted); }
+
+    .row {
+      border-top: 1px solid var(--line);
+      padding: 46px 0 54px;
+    }
+    .row .label { grid-column: 1 / span 3; }
+    .row .body { grid-column: 4 / span 9; }
+    .row .num {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .row .label h2 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .row .body p { margin: 0 0 16px; max-width: 560px; }
+    .lead { font-family: var(--serif); font-size: 18px; line-height: 1.8; }
+    .now { color: var(--muted); font-size: 14px; }
+
+    ul.fields { list-style: none; margin: 0; padding: 0; }
+    ul.fields li { font-family: var(--serif); font-size: 18px; padding: 10px 0; }
+
+    .work { list-style: none; margin: 0; padding: 0; }
+    .work li {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      column-gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .work li:last-child { border-bottom: none; }
+    .work .idx { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; padding-top: 4px; }
+    .work a:hover .name { color: var(--accent); }
+    .work .name { font-size: 16px; }
+    .work .desc { display: block; font-size: 13px; color: var(--muted); }
+
+    .links a { margin-right: 30px; font-size: 15px; }
+    .links a::after { content: " →"; color: var(--muted); }
+    .links a:hover::after { color: var(--accent); }
+
+    .foot {
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+      padding: 36px 0 96px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .foot .back { grid-column: 1 / span 6; }
+    .foot .copy { grid-column: 7 / span 6; text-align: right; }
+
+    @media screen and (max-width: 700px) {
+      .grid { padding: 0 24px; column-gap: 0; }
+      .masthead { padding-top: 72px; padding-bottom: 56px; }
+      .masthead .title { grid-column: 1 / span 12; }
+      .masthead .meta { grid-column: 1 / span 12; text-align: left; margin-top: 22px; }
+      .masthead h1 { font-size: 36px; }
+      .row { padding: 36px 0 42px; }
+      .row .label { grid-column: 1 / span 12; margin-bottom: 22px; }
+      .row .body { grid-column: 1 / span 12; }
+      .work li { grid-template-columns: 28px 1fr; column-gap: 10px; }
+      .links a { display: inline-block; margin: 0 20px 14px 0; }
+      .foot { margin-top: 32px; padding: 30px 0 72px; }
+      .foot .back { grid-column: 1 / span 12; }
+      .foot .copy { grid-column: 1 / span 12; text-align: left; margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="grid masthead">
+    <div class="title">
+      <h1>格理悟道</h1>
+      <p class="sub">Andy Chen</p>
+    </div>
+    <div class="meta">Computer Science<br>Artificial Intelligence<br>Complex Systems</div>
+  </header>
+
+  <section class="grid row">
+    <div class="label">
+      <div class="num">01</div>
+      <h2>About</h2>
+    </div>
+    <div class="body">
+      <p class="lead">在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+      <p class="now">计算机科学学生，现居意大利特伦托（Trento）。</p>
+    </div>
+  </section>
+
+  <section class="grid row">
+    <div class="label">
+      <div class="num">02</div>
+      <h2>Field</h2>
+    </div>
+    <div class="body">
+      <ul class="fields">
+        <li>计算机科学</li>
+        <li>人工智能</li>
+        <li>复杂系统</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="grid row">
+    <div class="label">
+      <div class="num">03</div>
+      <h2>Work</h2>
+    </div>
+    <div class="body">
+      <ul class="work">
+        <li><span class="idx">01</span><a href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer"><span class="name">PhilosophicalCharacter</span><span class="desc">NOEMA，中文哲学人格测评</span></a></li>
+        <li><span class="idx">02</span><a href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer"><span class="name">YourEurMap</span><span class="desc">欧洲地图</span></a></li>
+        <li><span class="idx">03</span><a href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer"><span class="name">TheMapGenerator</span><span class="desc">地图生成器</span></a></li>
+        <li><span class="idx">04</span><a href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer"><span class="name">Hexwebmap</span><span class="desc">六角格网页地图</span></a></li>
+        <li><span class="idx">05</span><a href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer"><span class="name">GoodSouthweb</span><span class="desc">网页游戏</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="grid row">
+    <div class="label">
+      <div class="num">04</div>
+      <h2>Elsewhere</h2>
+    </div>
+    <div class="body">
+      <p class="links">
+        <a href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer">问道</a>
+        <a href="https://andychen.net" target="_blank" rel="noopener noreferrer">旧博客</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="grid foot">
+    <span class="back"><a href="../">← 全部版本</a></span>
+    <span class="copy">© Andy Chen</span>
+  </footer>
+</body>
+</html>
