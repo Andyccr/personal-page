@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>格理悟道 · Andy Chen</title>
+  <meta name="description" content="格理悟道 · Andy Chen。在现象背后寻找结构，探索智能如何从简单中涌现。计算机科学学生，现居意大利特伦托（Trento）。">
+  <meta name="theme-color" content="#fcfcfc">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="格理悟道 · Andy Chen">
+  <meta property="og:description" content="在现象背后寻找结构，探索智能如何从简单中涌现。计算机科学学生，现居意大利特伦托（Trento）。">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fcfcfc;
+      --text: #111;
+      --muted: rgba(0, 0, 0, 0.42);
+      --accent: #1976d2;
+      --line: rgba(0, 0, 0, 0.14);
+      --hairline: rgba(0, 0, 0, 0.06);
+      --serif: Lora, "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", STSong, serif;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.65;
+      font-kerning: normal;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      hanging-punctuation: allow-end;
+    }
+    a {
+      color: var(--text);
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      text-decoration-color: var(--line);
+      text-decoration-skip-ink: auto;
+    }
+    a:hover {
+      color: var(--accent);
+      text-decoration-color: currentColor;
+    }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 1px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 20px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .masthead {
+      padding-top: 72px;
+      padding-bottom: 56px;
+    }
+    .masthead .title { grid-column: 1 / span 8; }
+    .masthead .meta { grid-column: 9 / span 4; text-align: right; align-self: end; }
+    .masthead h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 42px;
+      letter-spacing: 0.1em;
+      margin: 0;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+    .masthead .sub {
+      margin: 8px 0 0;
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--muted);
+      letter-spacing: 0.16em;
+    }
+    .masthead .meta {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      line-height: 1.9;
+      color: var(--muted);
+      font-variant-numeric: oldstyle-nums tabular-nums;
+    }
+
+    .row {
+      border-top: 1px solid var(--line);
+      padding-block: 32px 40px;
+      align-items: start;
+    }
+    .row .label { grid-column: 1 / span 3; padding-top: 1px; }
+    .row .body { grid-column: 4 / span 9; min-width: 0; }
+    .row .num {
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-variant-numeric: oldstyle-nums tabular-nums;
+    }
+    .row .label h2 {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .row .body p {
+      margin: 0 0 16px;
+      max-width: 560px;
+      text-wrap: pretty;
+    }
+    .row .body p:last-child { margin-bottom: 0; }
+    .lead { font-family: var(--serif); font-size: 18px; line-height: 1.8; }
+    .now { color: var(--muted); font-size: 14px; line-height: 1.75; }
+
+    ul.fields { list-style: none; margin: 0; padding: 0; }
+    ul.fields li {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.8;
+      padding: 8px 0;
+      text-wrap: pretty;
+    }
+
+    .work { list-style: none; margin: 0; padding: 0; }
+    .work li {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      column-gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--hairline);
+      align-items: start;
+    }
+    .work li:last-child { border-bottom: none; }
+    .work .idx {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      padding-top: 3px;
+      font-variant-numeric: oldstyle-nums tabular-nums;
+    }
+    .work a { text-decoration: none; min-width: 0; }
+    .work .name {
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      text-wrap: pretty;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      text-decoration-color: var(--line);
+      text-decoration-skip-ink: auto;
+    }
+    .work a:hover { color: inherit; }
+    .work a:hover .name { color: var(--accent); text-decoration-color: currentColor; }
+    .work .desc {
+      display: block;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin: 0;
+    }
+    .links a { font-size: 15px; }
+    .links a::after { content: " →"; color: var(--muted); }
+    .links a:hover::after { color: var(--accent); }
+
+    .foot {
+      border-top: 1px solid var(--line);
+      margin-top: 32px;
+      padding-block: 32px 80px;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+    .foot .back { grid-column: 1 / span 6; }
+    .foot .copy { grid-column: 7 / span 6; text-align: right; }
+
+    @media screen and (max-width: 720px) {
+      .grid { padding: 0 24px; column-gap: 0; }
+      .masthead { padding-top: 56px; padding-bottom: 40px; }
+      .masthead .title { grid-column: 1 / span 12; }
+      .masthead .meta { grid-column: 1 / span 12; text-align: left; margin-top: 16px; }
+      .masthead h1 { font-size: 32px; }
+      .row { padding-block: 24px 32px; }
+      .row .label {
+        grid-column: 1 / span 12;
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        padding-top: 0;
+        margin-bottom: 16px;
+      }
+      .row .num { margin-bottom: 0; }
+      .row .body { grid-column: 1 / span 12; }
+      .work li { grid-template-columns: 28px minmax(0, 1fr); column-gap: 12px; }
+      .links { gap: 8px 20px; }
+      .foot { padding-bottom: 56px; }
+      .foot .back { grid-column: 1 / span 12; }
+      .foot .copy { grid-column: 1 / span 12; text-align: left; margin-top: 8px; }
+    }
+
+    @page { margin: 20mm; }
+
+    @media print {
+      :root {
+        --bg: #fff;
+        --text: #000;
+        --muted: #444;
+        --line: #c8c8c8;
+        --hairline: #ddd;
+        --accent: #000;
+      }
+      body { background: #fff; font-size: 11pt; line-height: 1.55; }
+      .grid { display: block; max-width: none; padding: 0; }
+      .masthead { padding: 0 0 24pt; }
+      .masthead h1 { font-size: 26pt; }
+      .masthead .meta { text-align: left; margin-top: 8pt; }
+      .row { padding: 18pt 0; break-inside: avoid; page-break-inside: avoid; }
+      .row .label {
+        display: flex;
+        align-items: baseline;
+        gap: 8pt;
+        margin-bottom: 6pt;
+        padding-top: 0;
+      }
+      .row .num { margin: 0; }
+      .row .body p { max-width: none; }
+      .work li { break-inside: avoid; page-break-inside: avoid; }
+      .foot {
+        margin-top: 0;
+        padding: 16pt 0 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .foot .back { display: none; }
+      .foot .copy { text-align: left; }
+      a { color: #000; text-decoration-color: #999; }
+      .links a::after { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <header class="grid masthead">
+    <div class="title">
+      <h1>格理悟道</h1>
+      <p class="sub">Andy Chen</p>
+    </div>
+    <div class="meta">Computer Science<br>Artificial Intelligence<br>Complex Systems</div>
+  </header>
+
+  <main>
+    <section class="grid row">
+      <div class="label">
+        <div class="num">01</div>
+        <h2>About</h2>
+      </div>
+      <div class="body">
+        <p class="lead">在现象背后寻找结构，探索智能如何从简单中涌现。</p>
+        <p class="now">计算机科学学生，现居意大利特伦托（Trento）。</p>
+      </div>
+    </section>
+
+    <section class="grid row">
+      <div class="label">
+        <div class="num">02</div>
+        <h2>Field</h2>
+      </div>
+      <div class="body">
+        <ul class="fields">
+          <li>计算机科学</li>
+          <li>人工智能</li>
+          <li>复杂系统</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid row">
+      <div class="label">
+        <div class="num">03</div>
+        <h2>Work</h2>
+      </div>
+      <div class="body">
+        <ul class="work">
+          <li><span class="idx">01</span><a href="https://github.com/Andyccr/PhilosophicalCharacter" target="_blank" rel="noopener noreferrer"><span class="name">PhilosophicalCharacter</span><span class="desc">NOEMA，中文哲学人格测评</span></a></li>
+          <li><span class="idx">02</span><a href="https://github.com/Andyccr/YourEurMap" target="_blank" rel="noopener noreferrer"><span class="name">YourEurMap</span><span class="desc">欧洲地图</span></a></li>
+          <li><span class="idx">03</span><a href="https://github.com/Andyccr/TheMapGenerator" target="_blank" rel="noopener noreferrer"><span class="name">TheMapGenerator</span><span class="desc">地图生成器</span></a></li>
+          <li><span class="idx">04</span><a href="https://github.com/Andyccr/Hexwebmap" target="_blank" rel="noopener noreferrer"><span class="name">Hexwebmap</span><span class="desc">六角格网页地图</span></a></li>
+          <li><span class="idx">05</span><a href="https://github.com/Andyccr/GoodSouthweb" target="_blank" rel="noopener noreferrer"><span class="name">GoodSouthweb</span><span class="desc">网页游戏</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid row">
+      <div class="label">
+        <div class="num">04</div>
+        <h2>Elsewhere</h2>
+      </div>
+      <div class="body">
+        <p class="links">
+          <a href="https://github.com/Andyccr" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://andyccr.github.io/wendao/" target="_blank" rel="noopener noreferrer">问道</a>
+          <a href="https://andychen.net" target="_blank" rel="noopener noreferrer">旧博客</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="grid foot">
+    <span class="back"><a href="../">← 全部版本</a></span>
+    <span class="copy">© Andy Chen</span>
+  </footer>
+</body>
+</html>
